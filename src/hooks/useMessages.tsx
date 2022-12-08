@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 import LocalStorageService from "services/LocalStorage.service";
 import { Message } from "types/common";
 import { LOCAL_STORAGE } from "types/storage";
 import { v4 as uuidv4 } from "uuid";
 
-export const useMessages = () => {
+export const useMessages = (messageListRef?: MutableRefObject<HTMLDivElement>) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   const onStorageUpdate = (event: StorageEvent) => {
@@ -22,6 +22,12 @@ export const useMessages = () => {
       window.removeEventListener("storage", onStorageUpdate);
     };
   }, []);
+
+  useEffect(() => {
+    if (messageListRef?.current) {
+      messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const addMessage = (message: Message) => {
     const newMessage: Message = { ...message, messageId: uuidv4() };

@@ -7,7 +7,7 @@ class SessionStorageService {
     return undefined;
   }
 
-  setData(key: string, data: string): void {
+  setData(key: string, data: any): void {
     const saveData = JSON.stringify(data);
     window.sessionStorage.setItem(key, saveData);
   }

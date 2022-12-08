@@ -4,3 +4,8 @@ export interface Message {
   message: string;
   messageId?: string;
 }
+
+export interface User {
+  id: string;
+  name: string;
+}

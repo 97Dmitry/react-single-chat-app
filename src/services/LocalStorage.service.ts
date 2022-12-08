@@ -1,5 +1,5 @@
 class LocalStorageService {
-  getData(key: string): Record<string, string> | undefined {
+  getData(key: string) {
     const saveData = window.localStorage.getItem(key);
     if (saveData && saveData !== "undefined") {
       return JSON.parse(saveData);
@@ -7,7 +7,7 @@ class LocalStorageService {
     return undefined;
   }
 
-  setData(key: string, data: string): void {
+  setData(key: string, data: any): void {
     const saveData = JSON.stringify(data);
     window.localStorage.setItem(key, saveData);
   }

@@ -1,0 +1,15 @@
+.root {
+  padding-right: 12px;
+}
+
+.root::-webkit-scrollbar {
+  width: 6px; /* ширина scrollbar */
+}
+.root::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255); /* цвет дорожки */
+}
+.root::-webkit-scrollbar-thumb {
+  background-color: rgb(70, 70, 70); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+}
+

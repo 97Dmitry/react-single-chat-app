@@ -1,0 +1,14 @@
+$input-btn-focus-color: rgb(54, 52, 52);
+$input-focus-border-color: rgb(54, 52, 52);
+$input-focus-width: 1px;
+$input-border-width: 1px;
+$input-bg: #131719;
+$input-border-color: #14181a;
+$input-focus-box-shadow: 0 0 0 0.1rem rgb(54, 52, 52);
+$input-color: #fff;
+
+$card-bg: rgba(10, 14, 14, 0.85);
+$card-border-radius: max(0px, min(12px, calc((100vw - 4px - 100%) * 9999))) !important;
+$card-border: max(0px, min(12px, calc((100vw - 4px - 100%) * 9999))) !important;
+
+@import "~bootstrap/scss/bootstrap.scss"; 

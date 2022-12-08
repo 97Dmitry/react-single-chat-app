@@ -13,7 +13,10 @@ const ChatInput: FC<ChatInputProps> = ({ userId, userName, addMessage }) => {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addMessage({ senderId: userId, senderName: userName, message: inputValue });
+    if (!!inputValue) {
+      addMessage({ senderId: userId, senderName: userName, message: inputValue });
+      setInputValue("");
+    }
   };
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +26,13 @@ const ChatInput: FC<ChatInputProps> = ({ userId, userName, addMessage }) => {
   return (
     <Form className="d-flex w-100 align-items-center" onSubmit={onSubmit}>
       <Form.Group className=" me-3 flex-grow-1" controlId="message">
-        <Form.Control type="text" placeholder="Enter message" autoComplete="none" onChange={onChange} />
+        <Form.Control
+          type="text"
+          placeholder="Enter message"
+          autoComplete="none"
+          value={inputValue}
+          onChange={onChange}
+        />
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
